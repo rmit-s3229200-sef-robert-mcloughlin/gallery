@@ -1,0 +1,8 @@
+import gallery.Artwork
+
+model {
+	Iterable<Artwork> artworkList
+}
+
+json tmpl.artwork(artworkList ?: [])
+

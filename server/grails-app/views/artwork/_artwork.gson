@@ -1,0 +1,7 @@
+import gallery.Artwork
+
+model {
+	Artwork artwork
+}
+
+json g.render(artwork)
