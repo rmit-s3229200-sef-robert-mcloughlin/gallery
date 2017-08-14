@@ -1,7 +1,13 @@
 # gallery
 Application to replace paper booklets for the Royal Academy Summer Exhibition
 
-Instructions to run the app
+## Instructions to run the app
+
+*Initial setup*
+
+- Install NPM via instructions here: https://www.npmjs.com/get-npm
+
+- Install Grails via instructions here: https://grails.org/download.html
 
 In one terminal window
 ```
