@@ -1,19 +1,18 @@
 import React from 'react';
-import { render } from 'react-dom'
-import Gallery from './main/Gallery';
-import './css/App.css';
-import './css/grails.css';
-import './css/main.css';
+import ReactDOM from 'react-dom';
+import App from './App';
+import Main from './Main';
 
-import { Router, Route, hashHistory } from 'react-router'
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 
-// ReactDOM.render(
-//   <Gallery />,
-//   document.getElementById('root')
-// );
+const Root = () => {
+  return (
+    <BrowserRouter>
+      <div>
+        <Route path="/" component={Main} />
+      </div>
+    </BrowserRouter>
+  )
+}
 
-render((
-  <Router history={hashHistory}>
-    <Route path="/" component={Gallery}/>
-  </Router>
-), document.getElementById('root'))
+ReactDOM.render(<Root/>, document.getElementById('root'));

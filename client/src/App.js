@@ -22,10 +22,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(SERVER_URL + '/application')
-      .then(r => r.json())
-      .then(json => this.setState({serverInfo: json}))
-      .catch(error => console.error('Error connecting to server: ' + error));
+    fetch(SERVER_URL + '/application') //Fetch API URL
+      .then(r => r.json()) //Convert response to JSON object
+      .then(json => this.setState({serverInfo: json})) //Use the json object to set state
+      .catch(error => console.error('Error connecting to server: ' + error)); //Throw error, if error
 
   }
 

@@ -1,0 +1,32 @@
+{
+	"_id": 1,
+	"firstName": "Annie",
+	"lastName": "Apples",
+	"email": "a@a.com",
+	"password": "password",
+	"role": "user"
+}
+{
+	"_id": 2,
+	"firstName": "Billy",
+	"lastName": "Banana",
+	"email": "b@b.com",
+	"password": "password",
+	"role": "admin"
+}
+{
+	"_id": 3,
+	"firstName": "Carla",
+	"lastName": "Carrot",
+	"email": "c@c.com",
+	"password": "password",
+	"role": "artist"
+}
+{
+	"_id": 4,
+	"firstName": "Debbie",
+	"lastName": "Dhal",
+	"email": "d@d.com",
+	"password": "password",
+	"role": "artist"
+}

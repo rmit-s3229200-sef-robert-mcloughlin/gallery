@@ -1,24 +1,23 @@
 import React from 'react';
+import login from './authentication/login'
 
-// import {Table} from 'react-bootstrap';
-
-function getArtworks(index) {
+function getArtworks() {
   var url = "http://localhost:8080/artwork/";
-  if(!!index){
-    url = url + index;
-  }
-  return fetch(url)
+  return fetch(url, { 
+   method: 'get', 
+   headers: {
+     'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6InBhc3N3b3JkIiwicm9sZSI6ImFkbWluIiwiaXNzIjoiYXV0aDAiLCJ1c2VybmFtZSI6ImFkbWluVXNlciJ9.wlRg7zVc3GWPMUyU5tx6VeLiJsFGzWf1HZNfKGzzmIs', 
+     'Content-Type': 'application/x-www-form-urlencoded'
+   }
+  })
     .then((response) => response.json())
     .then((responseJson) => {
-      if(!!index){
-        return [responseJson]
-      } else {
         return responseJson
-      }
     })
     .catch((error) => {
       console.error(error);
     });
+
 }
 
 class Gallery extends React.Component {
@@ -47,12 +46,13 @@ class Gallery extends React.Component {
 
     } else {
 
-      return(
+      return (
         <div>
           {this.state.artworks.map(function(artwork){
             return(<div key={artwork.id}><h1>{artwork.name}</h1><p>{artwork.description}</p></div>)
           })}
-        </div>)
+        </div>
+      )
 
     }
 
@@ -62,17 +62,3 @@ class Gallery extends React.Component {
 
 
 export default Gallery;
-
-// export default React.createClass({
-//   render() {
-//     return (
-//       <div>
-//         <h1>React Router Tutorial</h1>
-//         <ul role="nav">
-//           <li><Link to="/about">About</Link></li>
-//           <li><Link to="/repos">Repos</Link></li>
-//         </ul>
-//       </div>
-//     )
-//   }
-// })

@@ -1,0 +1,60 @@
+{
+	"_id": 1,
+	"artworkName": "Artwork Number 1",
+	"artworkDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem adipisci expedita nemo. Placeat eos natus suscipit, earum excepturi autem maxime, minus, aspernatur cupiditate dignissimos laborum quaerat. Voluptatibus at eos eveniet! Excepturi ea quis voluptatem omnis, blanditiis itaque provident minima veritatis, beatae expedita voluptates, illo obcaecati iusto animi sequi. Consectetur, perferendis mollitia hic distinctio quisquam corrupti maiores vero consequuntur obcaecati ipsam. Maxime porro quis culpa ullam obcaecati doloremque, nisi deleniti facere optio quae explicabo consectetur, asperiores repellendus non aperiam possimus magnam dolor fugit nulla laborum cum praesentium necessitatibus vel modi! Cum?",
+	"artistId": 3,
+	"artworkLocation": "Gallery Room 1",
+	"artworkPrice": 5000,
+	"medium": "Oil on Cat",
+	"artAvailability": true
+}
+{
+	"_id": 2,
+	"artworkName": "Artwork Number 2",
+	"artworkDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem adipisci expedita nemo. Placeat eos natus suscipit, earum excepturi autem maxime, minus, aspernatur cupiditate dignissimos laborum quaerat. Voluptatibus at eos eveniet! Excepturi ea quis voluptatem omnis, blanditiis itaque provident minima veritatis, beatae expedita voluptates, illo obcaecati iusto animi sequi. Consectetur, perferendis mollitia hic distinctio quisquam corrupti maiores vero consequuntur obcaecati ipsam. Maxime porro quis culpa ullam obcaecati doloremque, nisi deleniti facere optio quae explicabo consectetur, asperiores repellendus non aperiam possimus magnam dolor fugit nulla laborum cum praesentium necessitatibus vel modi! Cum?",
+	"artistId": 4,
+	"artworkLocation": "Gallery Room 2",
+	"artworkPrice": 5000,
+	"medium": "Watercolours",
+	"artAvailability": false
+}
+{
+	"_id": 3,
+	"artworkName": "Artwork Number 3",
+	"artworkDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem adipisci expedita nemo. Placeat eos natus suscipit, earum excepturi autem maxime, minus, aspernatur cupiditate dignissimos laborum quaerat. Voluptatibus at eos eveniet! Excepturi ea quis voluptatem omnis, blanditiis itaque provident minima veritatis, beatae expedita voluptates, illo obcaecati iusto animi sequi. Consectetur, perferendis mollitia hic distinctio quisquam corrupti maiores vero consequuntur obcaecati ipsam. Maxime porro quis culpa ullam obcaecati doloremque, nisi deleniti facere optio quae explicabo consectetur, asperiores repellendus non aperiam possimus magnam dolor fugit nulla laborum cum praesentium necessitatibus vel modi! Cum?",
+	"artistId": 3,
+	"artworkLocation": "Gallery Room 3",
+	"artworkPrice": 5000,
+	"medium": "Oil on Cat",
+	"artAvailability": true
+}
+{
+	"_id": 4,
+	"artworkName": "Artwork Number 4",
+	"artworkDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem adipisci expedita nemo. Placeat eos natus suscipit, earum excepturi autem maxime, minus, aspernatur cupiditate dignissimos laborum quaerat. Voluptatibus at eos eveniet! Excepturi ea quis voluptatem omnis, blanditiis itaque provident minima veritatis, beatae expedita voluptates, illo obcaecati iusto animi sequi. Consectetur, perferendis mollitia hic distinctio quisquam corrupti maiores vero consequuntur obcaecati ipsam. Maxime porro quis culpa ullam obcaecati doloremque, nisi deleniti facere optio quae explicabo consectetur, asperiores repellendus non aperiam possimus magnam dolor fugit nulla laborum cum praesentium necessitatibus vel modi! Cum?",
+	"artistId": 4,
+	"artworkLocation": "Gallery Room 4",
+	"artworkPrice": 5000,
+	"medium": "Oil on Cat",
+	"artAvailability": true
+}
+{
+	"_id": 5,
+	"artworkName": "Artwork Number 5",
+	"artworkDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem adipisci expedita nemo. Placeat eos natus suscipit, earum excepturi autem maxime, minus, aspernatur cupiditate dignissimos laborum quaerat. Voluptatibus at eos eveniet! Excepturi ea quis voluptatem omnis, blanditiis itaque provident minima veritatis, beatae expedita voluptates, illo obcaecati iusto animi sequi. Consectetur, perferendis mollitia hic distinctio quisquam corrupti maiores vero consequuntur obcaecati ipsam. Maxime porro quis culpa ullam obcaecati doloremque, nisi deleniti facere optio quae explicabo consectetur, asperiores repellendus non aperiam possimus magnam dolor fugit nulla laborum cum praesentium necessitatibus vel modi! Cum?",
+	"artistId": 3,
+	"artworkLocation": "Gallery Room 5",
+	"artworkPrice": 5000,
+	"medium": "Oil on Cat",
+	"artAvailability": true
+}
+{
+	"_id": 6,
+	"artworkName": "Artwork Number 6",
+	"artworkDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem adipisci expedita nemo. Placeat eos natus suscipit, earum excepturi autem maxime, minus, aspernatur cupiditate dignissimos laborum quaerat. Voluptatibus at eos eveniet! Excepturi ea quis voluptatem omnis, blanditiis itaque provident minima veritatis, beatae expedita voluptates, illo obcaecati iusto animi sequi. Consectetur, perferendis mollitia hic distinctio quisquam corrupti maiores vero consequuntur obcaecati ipsam. Maxime porro quis culpa ullam obcaecati doloremque, nisi deleniti facere optio quae explicabo consectetur, asperiores repellendus non aperiam possimus magnam dolor fugit nulla laborum cum praesentium necessitatibus vel modi! Cum?",
+	"artistId": 4,
+	"artworkLocation": "Gallery Room 6",
+	"artworkPrice": 6000,
+	"medium": "Bucket of fishheads",
+	"artAvailability": true
+}
