@@ -3,7 +3,7 @@ package gallery
 import java.util.*
 
 class User {
-	final int MINIMUM_AGE_IN_MS = 1000 * 60 * 60 * 24 * 365 * 13 //13 Years old
+	private final int MINIMUM_AGE_IN_MS = 1000 * 60 * 60 * 24 * 365 * 13 //13 Years old
 
 	String _id
 	String firstName
@@ -27,5 +27,10 @@ class User {
 //	    	dateOfBirth(validator: { 
 //	    		return ( it > new Date().setTime(new Date().getTime() - MINIMUM_AGE_IN_MS) ) //TODO - Rethink this, seems inelegant. See page 43 or Grails GS book 
 //	    	}); //TODO Think of a better way of handling Date for API 
+    }
+
+    def getFullName(){
+    	String fullName = firstName + " " + lastName
+    	return fullName
     }
 }

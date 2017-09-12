@@ -1,0 +1,7 @@
+import gallery.Art
+
+model {
+	Art art
+}
+
+json tmpl.art(art)
