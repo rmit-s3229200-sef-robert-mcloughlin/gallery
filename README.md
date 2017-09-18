@@ -35,6 +35,7 @@ Access localhost:8080 from a browser to view the running Grails server app
 ## Your all ready to get started :D
 The folder structure of the application is as follows:
 
+```
 Server
 |- grails-app
    |- controllers (These are the 'C' in MVC - they control the URL endpoints for each of the domain models)
@@ -44,6 +45,7 @@ Server
     |- test
         |- groovy
             |- gallery (These are the test specs, which is where we'll be writing our JUnit tests in the next week or so)
+```
 
 To create a new domain model, the easiest way to do this is from the command line, head to the 'server' folder and run the following `grailsw[.bat] create-domain-class {DOMAIN CLASS NAME}` - this will generate a boilerplate class in domain/gallery/{DOMAIN CLASS NAME}.groovy
 
