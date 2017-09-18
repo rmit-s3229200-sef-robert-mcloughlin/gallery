@@ -28,7 +28,7 @@ class ArtController {
     // Endpoint: /art/{_id}
     // HTTP Method: GET
     def show(Art art) { 
-        art.setArtist(art.artistId)
+        art.setArtist(art.artistId) //TODO - Get rid of this and instead call the /get for Artist endpoint
         def artIncludingArtist = [:] // Create a new Map that will contain all of the art, and artist information
 
         art.getProperties().each { entry ->
