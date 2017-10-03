@@ -1,0 +1,466 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Gallery",
+		"_postman_id": "5b8f29c9-8209-8c80-cb0e-0ae723ac6757",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User - Success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/user",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "{{$guid}}@demo.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "asdffdsa",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "fdsaasdf",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "role",
+							"value": "admin",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Create a demo basic user at /user"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User, existing email - Failure",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 500\"] = responseCode.code === 500;",
+							"tests[\"Contains Error Text\"] = responseBody.has(\"Unable to save user\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/user",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "a@a.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "firstName",
+							"value": "asdffdsa",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "fdsaasdf",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "dateOfBirth",
+							"value": "",
+							"description": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Create a demo basic user at /user"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User, no fields - Failure",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Body matches string\"] = responseBody.has(\"errors\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/user",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "Create a demo basic user at /user"
+			},
+			"response": []
+		},
+		{
+			"name": "Login existing user - Success",
+			"request": {
+				"url": "http://localhost:8080/login",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@demo.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Logs in as an existing user in the database, currently just returns token in plain text. Need to fix to return JSON object that includes user details"
+			},
+			"response": []
+		},
+		{
+			"name": "Login existing admin - Success",
+			"request": {
+				"url": "http://localhost:8080/login",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@demo.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "Logs in as an existing user in the database, currently just returns token in plain text. Need to fix to return JSON object that includes user details"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Details, user - Success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response contains ID\"] = jsonData.id === 1;",
+							"tests[\"Response contains email\"] = jsonData.email === \"a@a.com\";",
+							"tests[\"Response contains firstName\"] = jsonData.firstName === \"Annie\";",
+							"tests[\"Response contains lastName\"] = jsonData.lastName === \"Apples\";",
+							"// tests[\"Response doesn't contain password\"] = jsonData.password !== \"12345\";",
+							"tests[\"Response contains role\"] = jsonData.role === \"user\";",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/user/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoidXNlciIsImlzcyI6ImdhbGxlcnlBcHAiLCJpZCI6MSwiZW1haWwiOiJ0ZXN0QGRlbW8uY29tIn0.-oRAWgX5jpg3M0xJyeK6mMfhLy4O7Hsx0wBOYNaNrYU",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get the details of the logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Details, user - Failure",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Body is correct\"] = responseBody === \"Page requires authentication\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/user/2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoidXNlciIsImlzcyI6ImdhbGxlcnlBcHAiLCJpZCI6MSwiZW1haWwiOiJ0ZXN0QGRlbW8uY29tIn0.-oRAWgX5jpg3M0xJyeK6mMfhLy4O7Hsx0wBOYNaNrYU",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get the details of the logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Details, admin - Success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response contains ID\"] = jsonData.id === 1;",
+							"tests[\"Response contains email\"] = jsonData.email === \"a@a.com\";",
+							"tests[\"Response contains firstName\"] = jsonData.firstName === \"Annie\";",
+							"tests[\"Response contains lastName\"] = jsonData.lastName === \"Apples\";",
+							"// tests[\"Response doesn't contain password\"] = jsonData.password !== \"12345\";",
+							"tests[\"Response contains role\"] = jsonData.role === \"user\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/user/1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJpc3MiOiJnYWxsZXJ5QXBwIiwiaWQiOjIxLCJlbWFpbCI6ImFkbWluQGRlbW8uY29tIn0.f8MGn8bvZABzSn9IxIAviPNCaoRHN-iYwwDv1alBoOU",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "Get the details of the logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Art Details, user - Success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Response contains artworkName\"] = jsonData.artworkName === \"Artwork Number 1\"",
+							"tests[\"Response contains artist details\"] = jsonData.artist.id === 3",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/art/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get the details of the logged in user"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Art, admin - Success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 201\"] = responseCode.code === 201;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/art",
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiYWRtaW4iLCJpc3MiOiJnYWxsZXJ5QXBwIiwiaWQiOjIxLCJlbWFpbCI6ImFkbWluQGRlbW8uY29tIn0.f8MGn8bvZABzSn9IxIAviPNCaoRHN-iYwwDv1alBoOU",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "artworkName",
+							"value": "New Artwork",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "artworkDescription",
+							"value": "Lorem Ipsum Baby!",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "artistId",
+							"value": "5",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "artworkLocation",
+							"value": "In the gallery",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "artworkPrice",
+							"value": "9000",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "medium",
+							"value": "Not a fish",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "artAvailability",
+							"value": "false",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Create a demo basic user at /user"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Art, user - Failure",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 401\"] = responseCode.code === 401;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:8080/art",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "artworkName",
+							"value": "New Artwork",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "artworkDescription",
+							"value": "Lorem Ipsum Baby!",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "artistId",
+							"value": "5",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "artworkLocation",
+							"value": "In the gallery",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "artworkPrice",
+							"value": "9000",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "medium",
+							"value": "Not a fish",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "artAvailability",
+							"value": "false",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"description": "Create a demo basic user at /user"
+			},
+			"response": []
+		}
+	]
+}
