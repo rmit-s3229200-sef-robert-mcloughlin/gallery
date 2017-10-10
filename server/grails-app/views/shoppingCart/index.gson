@@ -1,0 +1,8 @@
+import gallery.ShoppingCart
+
+model {
+	Iterable<ShoppingCart> shoppingCartList
+}
+
+json tmpl.shoppingCart(shoppingCartList ?: [])
+
