@@ -8,6 +8,9 @@ class ShoppingCart {
 	
 
     static constraints = { 
+    	cartID blank:false
+		artID blank:false
+		totalQuantity blank:false
     }	
     
 }
