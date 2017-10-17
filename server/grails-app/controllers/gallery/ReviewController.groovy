@@ -2,6 +2,7 @@ package gallery
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import gallery.Authentication
 
 @Transactional(readOnly = true)
 class ReviewController {
@@ -66,14 +67,27 @@ class ReviewController {
 
     @Transactional
     def delete(Review review) {
+    		String token = request.getHeader('token')
+    		Authentication auth = new Authentication()
 
         if (review == null) {
             transactionStatus.setRollbackOnly()
             render status: NOT_FOUND
             return
         }
-
-        review.delete flush:true
+        
+        if( token != null && auth.isInRole("admin", token) ) {
+            try { //Delete review
+                    review.delete flush:true
+                } catch (Exception e) { //Fail for generic errors, TODO tighten up to include specific exceptions
+                    render(status: 500, text: e)
+                    return
+                }
+        } else {
+            transactionStatus.setRollbackOnly()
+            render(status: 401, text: "Requires admin to delete review")
+            return
+        }
 
         render status: NO_CONTENT
     }
