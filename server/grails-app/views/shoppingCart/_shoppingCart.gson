@@ -1,0 +1,7 @@
+import gallery.ShoppingCart
+
+model {
+	ShoppingCart shoppingCart
+}
+
+json g.render(shoppingCart)
